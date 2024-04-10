@@ -1,1 +1,49 @@
-
+{"openapi": "3.0.0",
+    "info": {
+        "title": "Create Field Design Package Automation API",
+        "version": "1.0.0",
+        "description": "API for creating new field design package."
+    },
+    "paths": {
+        "/create-fdp": {
+            "post": {
+                "summary": "Create a new field design package",
+                "description": "Create a new field design package, then update the database with the new fdp. Return the newly created fdp's fdpId and list of pending drawings in comma-separated plaintext.",
+                "operationId": "createFDP",
+                "responses": {
+                    "200": {
+                        "description": "Creates a field design package",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "fdpId": {
+                                            "type": "string",
+                                            "description": "Unique ID of the fdp."
+                                        },
+                                        "policyId": {
+                                            "type": "string",
+                                            "description": "Unique ID of facility engineer who has prepared the fdp."
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "description": "The status of the fdp. FDP can be in Open or Closed state."
+                                        },
+                                        "pendingDocuments": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "description": "List of pending drawings required for the fdp."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
