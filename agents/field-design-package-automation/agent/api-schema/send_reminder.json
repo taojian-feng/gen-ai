@@ -1,0 +1,90 @@
+{"openapi": "3.0.0",
+    "info": {
+        "title": "Field Design Package Status and Reminder API",
+        "version": "1.0.0",
+        "description": "APIs for identifying field design package status and sending reminders for FDP data that still needs to be collected"
+    },
+    "paths": {
+        "/open-claims": {
+            "get": {
+                "summary": "Get a list of all open FDPs",
+                "description": "Get the list of all open field design packages. Return a list of all the open FDPIds in comma-separated plaintext.",
+                "operationId": "getAllOpenFDPs",
+                "responses": {
+                    "200": {
+                        "description": "Gets the list of all open FDPs",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "claimId": {
+                                                "type": "string",
+                                                "description": "Unique ID of the FDP."
+                                            },
+                                            "policyId": {
+                                                "type": "string",
+                                                "description": "Unique ID of the facility engineer who has filed the FDP."
+                                            },
+                                            "claimStatus": {
+                                                "type": "string",
+                                                "description": "The status of the FDP. FDP can be in Open or Closed state"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/claims/{claimId}/notify-pending-documents": {
+            "post": {
+                "summary": "Identify pending documents for a specific claim and send reminder to policy holder",
+                "description": "Get the list of pending documents that need to be uploaded to the claim and notify the policy holder. This function can be called multiple times with different claimIds as the input parameter. Return the list of comma-separated plaintext pending documents and the reminder tracking ID and status in plaintext.",
+                "operationId": "notifyPendingDocuments",
+                "parameters": [{
+                    "name": "claimId",
+                    "in": "path",
+                    "description": "Unique ID of the open insurance claim",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "List of documents that are pending to be uploaded by the policy holder for an insurance claim",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "sendReminderTrackingId": {
+                                            "type": "string",
+                                            "description": "Unique Id to track the status of the send reminder Call"
+                                        },
+                                        "sendReminderStatus": {
+                                            "type": "string",
+                                            "description": "Status of send reminder notifications"
+                                        },
+                                        "pendingDocuments": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "description": "List of pending documents"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
