@@ -1,0 +1,110 @@
+[
+  {
+    "fdpId": "x-123",
+    "facEngrId": "101604237",
+    "email": "example@amazon.com",
+    "FDPDatetime": "2023-11-22 15:21:00",
+    "Damage": {
+      "date": "11-21-2023",
+      "type": "Corrosion",
+      "severity": "Grade F"
+    },
+    "corrosion": {
+      "type": "wall loss",
+      "numberPartInvolved": 1
+    },
+    "partLine": {
+      "No.": "V-2H03 PR 02@3'",
+      "partRelationship": "primary",
+      "partInstallDate": "01-12-1975"
+    },
+    "damageSummary": {
+      "rem_wall": 0.225,
+      "%loss": 60,
+      "wall thickness unit": "inch"
+    },
+    "status": "Closed",
+    "pendingDocuments": []
+  },
+  {
+    "fdpId": "y-113",
+    "facEngrId": "101604237",
+    "email": "example@amazon.com",
+    "FDPDatetime": "2023-11-22 15:21:00",
+    "Damage": {
+      "date": "11-21-2023",
+      "type": "Corrosion",
+      "severity": "Grade C"
+    },
+    "corrosion": {
+      "type": "wall loss",
+      "numberPartInvolved": 1
+    },
+    "partLine": {
+      "No.": "V-2H03 PR 02@2'",
+      "partRelationship": "primary",
+      "partInstallDate": "01-12-1975"
+    },
+    "damageSummary": {
+      "rem_wall": 0.397,
+      "%loss": 40,
+      "wall thickness unit": "inch"
+    },
+    "status": "Open",
+    "pendingDocuments": ["Damage Summary Drawing", "P_ID Drawing", "Vendor Drawing"]
+  },
+  {
+    "fdpId": "y-143",
+    "facEngrId": "101604237",
+    "email": "example@amazon.com",
+    "FDPDatetime": "2023-11-22 15:21:00",
+    "Damage": {
+      "date": "11-21-2023",
+      "type": "Corrosion",
+      "severity": "Grade C"
+    },
+    "corrosion": {
+      "type": "wall loss",
+      "numberPartInvolved": 1
+    },
+    "partLine": {
+      "No.": "V-2H03 PR 02@4'",
+      "partRelationship": "primary",
+      "partInstallDate": "01-12-1975"
+    },
+    "damageSummary": {
+      "rem_wall": 0.355,
+      "%loss": 46,
+      "wall thickness unit": "inch"
+    },
+    "status": "Open",
+    "pendingDocuments": ["Damage Summary Drawing", "P_ID Drawing"]
+  },
+  {
+    "fdpId": "y-163",
+    "facEngrId": "101604237",
+    "email": "example@amazon.com",
+    "FDPDatetime": "2023-11-22 15:21:00",
+    "Damage": {
+      "date": "11-21-2023",
+      "type": "Corrosion",
+      "severity": "Grade D"
+    },
+    "corrosion": {
+      "type": "wall loss",
+      "numberPartInvolved": 1
+    },
+    "partLine": {
+      "No.": "V-2H03 PR 02@5'",
+      "partRelationship": "primary",
+      "partInstallDate": "01-12-1975"
+    },
+    "damageSummary": {
+      "rem_wall": 0.291,
+      "%loss": 48,
+      "wall thickness unit": "inch"
+    },
+    "status": "Open",
+    "pendingDocuments": ["Damage Summary Drawing"]
+  }
+]
