@@ -10,9 +10,9 @@
 export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 export ARTIFACT_BUCKET_NAME=$STACK_NAME-customer-resources
 export DATA_LOADER_KEY="agent/lambda/data-loader/loader_deployment_package.zip"
-export CREATE_CLAIM_KEY="agent/lambda/action-groups/create_fdp.zip"
-export GATHER_EVIDENCE_KEY="agent/lambda/action-groups/gather_drawings.zip"
-#export SEND_REMINDER_KEY="agent/lambda/action-groups/send_reminder.zip"
+export CREATE_FDP_KEY="agent/lambda/action-groups/create_fdp.zip"
+export GATHER_DOCUMENT_KEY="agent/lambda/action-groups/gather_document.zip"
+export SEND_REMINDER_KEY="agent/lambda/action-groups/send_reminder.zip"
 
 aws s3 mb s3://${ARTIFACT_BUCKET_NAME} --region ${AWS_REGION}
 aws s3 cp ../agent/ s3://${ARTIFACT_BUCKET_NAME}/agent/ --region ${AWS_REGION} --recursive --exclude ".DS_Store"
@@ -41,13 +41,13 @@ aws cloudformation create-stack \
 --parameters \
 ParameterKey=ArtifactBucket,ParameterValue=${ARTIFACT_BUCKET_NAME} \
 ParameterKey=DataLoaderKey,ParameterValue=${DATA_LOADER_KEY} \
-ParameterKey=CreateFDPKey,ParameterValue=${CREATE_FDP_KEY} \
-ParameterKey=GatherDrawsingsKey,ParameterValue=${GATHER_DRAWINGS_KEY} \
-#ParameterKey=SendReminderKey,ParameterValue=${SEND_REMINDER_KEY} \
+ParameterKey=CreatefdpKey,ParameterValue=${CREATE_FDP_KEY} \
+ParameterKey=GatherDocumentKey,ParameterValue=${GATHER_DOCUMENT_KEY} \
+ParameterKey=SendReminderKey,ParameterValue=${SEND_REMINDER_KEY} \
 ParameterKey=BedrockAgentsLayerArn,ParameterValue=${BEDROCK_AGENTS_LAYER_ARN} \
 ParameterKey=CfnresponseLayerArn,ParameterValue=${CFNRESPONSE_LAYER_ARN} \
 ParameterKey=SNSEmail,ParameterValue=${SNS_EMAIL} \
-ParameterKey=DrawingsUploadUrl,ParameterValue=${DRAWINGS_UPLOAD_URL} \
+ParameterKey=DocumentUploadUrl,ParameterValue=${DOCUMENT_UPLOAD_URL} \
 --capabilities CAPABILITY_NAMED_IAM \
 --region ${AWS_REGION}
 
